@@ -45,7 +45,7 @@ def sim_health_index(n_runs):
   z_mat_all = None
   if rank == 0:
     # z_mat_all = np.empty([N*size, (T, N)], dtype = 'float')
-      z_mat_all = np.zeros((T, N*size))
+      z_mat_all = np.zeros((T, int(N*size)))
    #  comm.Gather(sendbuf=z_mat, recvbuf=z_mat_all, root=0)
      comm.gather(z_mat_all, root=0)
      
