@@ -12,9 +12,9 @@
  
 # mpirun python ./health_index.py
  
- mpirun -n 1 python ./health_index.py &
- mpirun -n 5 python ./health_index.py &
- mpirun -n 10 python ./health_index.py &
+ mpirun -n 1 python ./health_index.py
+ mpirun -n 5 python ./health_index.py
+ mpirun -n 10 python ./health_index.py
   
 #  for i in {1..100}
 #  do
