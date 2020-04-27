@@ -29,8 +29,8 @@ def sim_health_index(n_runs):
 
   # Draw all idiosyncratic random shocks and create empty containers
   np.random.seed(25)
-  eps_mat = sts.norm.rvs(loc=0, scale=sigma, size=(T, N))
-  z_mat = np.zeros((T, N))
+  eps_mat = sts.norm.rvs(loc=0, scale=sigma, size=(N, T))
+  z_mat = np.zeros((N, T))
   z_mat[0, :] = z_0
 
   for s_ind in range(N):
