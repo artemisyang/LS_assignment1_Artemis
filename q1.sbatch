@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #SBATCH --job-name=q1
-#SBATCH --partition=broadwl
+#SBATCH --partition=bigmem2
 #SBATCH --constraint=fdr
 #SBATCH --ntasks=150
 #SBATCH --output=q1.out
