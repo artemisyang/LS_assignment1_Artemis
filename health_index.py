@@ -4,7 +4,7 @@ import numpy as np
 import time
 import scipy.stats as sts
 
-def sim_health_index(n_runs):
+def sim_health_index():
 
   # Get rank of process and overall size of communicator:
   comm = MPI.COMM_WORLD
@@ -21,7 +21,7 @@ def sim_health_index(n_runs):
   z_0 = mu
 
   # Set simulation parameters
-  S = n_runs # Set the number of lives to simulate
+  S = 1000 # Set the number of lives to simulate
   T = int(4160) # Set the number of periods for each simulation
 
   # Evenly distribute number of simulation runs across processes
@@ -61,7 +61,7 @@ def sim_health_index(n_runs):
   return
 
 def main():
-    sim_health_index(n_runs = 1000)
+    sim_health_index()
 
 if __name__ == '__main__':
     main()
