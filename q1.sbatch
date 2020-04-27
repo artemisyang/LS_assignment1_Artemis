@@ -12,7 +12,7 @@
  
 # Run the python program with mpirun, using & to run jobs at the same time
  
- mpirun python ./health_index.py
+# mpirun python ./health_index.py
  
  mpirun -n 1 python ./health_index.py
  mpirun -n 5 python ./health_index.py
@@ -24,4 +24,4 @@
 #  done
  
 # Wait until all simultaneous mpiruns are done
-# wait
+ wait
