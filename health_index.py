@@ -36,9 +36,9 @@ def sim_health_index(n_runs):
   for s_ind in range(N):
     z_tm1 = z_0
     for t_ind in range(T):
-      e_t = eps_mat[t_ind, s_ind]
+      e_t = eps_mat[s_ind, t_ind]
       z_t = rho * z_tm1 + (1 - rho) * mu + e_t
-      z_mat[t_ind, s_ind] = z_t
+      z_mat[s_ind, t_ind] = z_t
       z_tm1 = z_t
 
   # Gather all simulation arrays to buffer on rank 0
