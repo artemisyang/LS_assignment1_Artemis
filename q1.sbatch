@@ -14,7 +14,7 @@
  
 # mpirun python ./health_index.py
  
- mpirun -n 1 python ./health_index.py
+# mpirun -n 1 python ./health_index.py
  mpirun -n 2 python ./health_index.py
  mpirun -n 3 python ./health_index.py
   
