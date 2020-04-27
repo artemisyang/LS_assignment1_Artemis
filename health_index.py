@@ -4,6 +4,10 @@ import numpy as np
 import time
 import scipy.stats as sts
 
+comm = MPI.COMM_WORLD
+rank = comm.Get_rank()
+size = comm.Get_size()
+    
 def sim_health_index():
 
     # Get rank of process and overall size of communicator:
