@@ -3,8 +3,7 @@
 #SBATCH --job-name=q1
 #SBATCH --partition=broadwl
 #SBATCH --constraint=fdr
-#SBATCH --ntasks=120
-#SBATCH --mem-per-cpu=2G
+#SBATCH --ntasks=150
 #SBATCH --output=q1.out
 
 # Load the default mpi4py/Anaconda module.
