@@ -3,10 +3,6 @@ import matplotlib.pyplot as plt
 import numpy as np
 import time
 import scipy.stats as sts
-
-comm = MPI.COMM_WORLD
-rank = comm.Get_rank()
-size = comm.Get_size()
     
 def sim_health_index():
 
@@ -47,12 +43,12 @@ def sim_health_index():
 
   # Gather all simulation arrays to buffer on rank 0
    # z_mat_all = None
-    if rank == 0:
+ #   if rank == 0:
     # z_mat_all = np.empty([N*size, (T, N)], dtype = 'float')
     # z_mat_all = np.zeros((int(N*size), T))
      #  z_mat_all = np.empty([S, T], dtype='float')
    #  comm.Gather(sendbuf=z_mat, recvbuf=z_mat_all, root=0)
-       comm.gather(z_mat, root=0)
+    #   comm.gather(z_mat, root=0)
      
   # Print simulation results on rank 0
     if rank == 0:
