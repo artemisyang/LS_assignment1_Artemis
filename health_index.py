@@ -29,25 +29,25 @@ def sim_health_index():
 
     # Draw all idiosyncratic random shocks and create empty containers
     np.random.seed(25)
-    eps_mat = sts.norm.rvs(loc=0, scale=sigma, size=(N, T))
-    z_mat = np.zeros((N, T))
+    eps_mat = sts.norm.rvs(loc=0, scale=sigma, size=(T, N))
+    z_mat = np.zeros((T, N))
     z_mat[0, :] = z_0
 
     for s_ind in range(N):
         z_tm1 = z_0
         for t_ind in range(T):
-            e_t = eps_mat[s_ind, t_ind]
+            e_t = eps_mat[t_ind, s_ind]
             z_t = rho * z_tm1 + (1 - rho) * mu + e_t
-            z_mat[s_ind, t_ind] = z_t
+            z_mat[t_ind, s_ind] = z_t
             z_tm1 = z_t
 
   # Gather all simulation arrays to buffer on rank 0
     z_mat_all = None
     if rank == 0:
-    # z_mat_all = np.empty([T, N], dtype = 'float')
-     z_mat_all = np.zeros((int(N*size), T))
+       z_mat_all = np.empty([T, int(N*size)], dtype = 'float')
+     #  z_mat_all = np.zeros((T, int(N*size)))
      #  z_mat_all = np.empty([S, T], dtype='float')
-     comm.Gather(sendbuf=z_mat, recvbuf=z_mat_all, root=0)
+    comm.Gather(sendbuf=z_mat, recvbuf=z_mat_all, root=0)
     #   comm.gather(z_mat, root=0)
      
   # Print simulation results on rank 0
