@@ -12,4 +12,4 @@
  
 # Run the python program with mpirun, using & to run jobs at the same time
  
- mpirun -n 2 python ./q3a.py
+ mpirun -n 20 python ./q3a.py
