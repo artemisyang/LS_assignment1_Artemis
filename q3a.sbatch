@@ -5,6 +5,7 @@
 #SBATCH --constraint=fdr
 #SBATCH --mem-per-cpu=2G
 #SBATCH --account=macs30123
+#SBATCH --output=q3.out
 
 # Load the default mpi4py/Anaconda module.
  module load mpi4py/3.0.1a0_py3
