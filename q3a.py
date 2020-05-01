@@ -28,7 +28,7 @@ def sim_health_index(r):
     N = int(S/size)
 
     # Draw all idiosyncratic random shocks and create empty containers
-    np.random.seed(25)
+    #np.random.seed(25)
     eps_mat = sts.norm.rvs(loc=0, scale=sigma, size=(T, N))
     z_mat = np.zeros((T, N))
     z_mat[0, :] = z_0
@@ -47,17 +47,16 @@ def sim_health_index(r):
             if z_tm1<0:
               if neg_index[s_ind] == T+1:
                  neg_index[s_ind] = t_ind+1
-                 
+
   # Gather all simulation arrays to buffer on rank 0
     neg_all = comm.gather(neg_index, root = 0)
      
-  # Return simulation results on rank 0
+  # Return average number of periods on rank 0
     if rank == 0:
        mean = np.mean(neg_all)
     return mean
 
 def main():
-
     # Start time
     t0 = time.time()
     
@@ -70,13 +69,16 @@ def main():
     # Get optimal rho value
     ind = avg.index(max(avg))
     opt = rho_array[ind]
+    max_avg = max(avg)
     
     # End time
     time_elapsed = time.time() - t0
 
     # Print simulation results
-    print("Simulated in %f seconds, found optimal rho value = %f"
-                % (time_elapsed, opt)) 
-  
+    print("Simulated in %f seconds, Optimal rho value = %f, Average periods = %f"
+                % (time_elapsed, opt, max_avg)) 
+
+    plt.plot(rho_array,avg)
+    
 if __name__ == '__main__':
     main()
