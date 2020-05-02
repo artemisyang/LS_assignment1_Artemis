@@ -27,8 +27,8 @@ def sim_health_index():
         z_0 = mu
 
         # Set simulation parameters
-        S = 10 # Set the number of lives to simulate
-        T = int(410) # Set the number of periods for each simulation
+        S = 1000 # Set the number of lives to simulate
+        T = int(4160) # Set the number of periods for each simulation
 
         # Evenly distribute number of simulation runs across processes
         N = int(S/size)
