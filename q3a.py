@@ -60,12 +60,12 @@ def main():
     avg =np.zeros(200)
     
     # run program with different rhos
-    for r in range(rho_array):
+    for r in range(len(rho_array)):
         avg[r] = sim_health_index(rho_array[r])
     
     # Get optimal rho value
-    opt = rho_array[avg.index(max(avg))]
-    max_avg = max(avg)
+    max_avg = np.amax(avg)
+    opt = rho_array[np.argmax(avg)] 
     
     # End time
     time_elapsed = time.time() - t0
