@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 import time
 import scipy.stats as sts
+from scipy.optimize import minimize
 
 comm = MPI.COMM_WORLD
 size = comm.Get_size()
