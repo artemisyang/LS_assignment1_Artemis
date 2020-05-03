@@ -1,3 +1,9 @@
+from mpi4py import MPI
+import matplotlib.pyplot as plt
+import numpy as np
+import time
+import scipy.stats as sts
+
 comm = MPI.COMM_WORLD
 size = comm.Get_size()
 rank = comm.Get_rank()
